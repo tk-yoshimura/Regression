@@ -44,7 +44,7 @@ namespace Regression {
             this.xt = X.Transpose;
         }
 
-        public Vector ExecuteFitting(Vector? weights = null) {
+        public virtual Vector ExecuteFitting(Vector? weights = null) {
             if (weights is null) {
                 Vector parameters = Matrix.Solve(xt * X, xt * Y);
 
