@@ -4,19 +4,19 @@ namespace Regression {
     public class RobustRegressor : Regressor {
         public Vector W { get; private set; }
 
-        public RobustRegressor(Vector[] xs, Vector ys, bool intercept = true) 
+        public RobustRegressor(Vector[] xs, Vector ys, bool intercept = true)
             : base(xs, ys, intercept) {
 
             this.W = Vector.Fill(N, 1d);
         }
 
-        public RobustRegressor(Matrix xs, Vector ys, bool intercept = true) 
+        public RobustRegressor(Matrix xs, Vector ys, bool intercept = true)
             : base(xs, ys, intercept) {
 
             this.W = Vector.Fill(N, 1d);
         }
 
-        public override sealed Vector ExecuteFitting(Vector? weights = null) {
+        public sealed override Vector ExecuteFitting(Vector? weights = null) {
             throw new InvalidOperationException();
         }
 
