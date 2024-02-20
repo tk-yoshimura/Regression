@@ -22,7 +22,7 @@ Vector y = new ddouble[] { 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4,
 
 Vector z = Vector.Func(x, y, f);
 
-Regressor fitter = new([x, y, x * y, x * x, y * y], z);
+RobustRegressor fitter = new([x, y, x * y, x * x, y * y], z);
 
 Vector param = fitter.ExecuteFitting();
 ```
