@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regression", "Regression\Regression.csproj", "{04936445-E00D-43E5-A34A-7A4E3FB14193}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegressionTests", "RegressionTests\RegressionTests.csproj", "{7B970357-F7DA-4F9C-BDC5-8273CB34D431}"
+	ProjectSection(ProjectDependencies) = postProject
+		{04936445-E00D-43E5-A34A-7A4E3FB14193} = {04936445-E00D-43E5-A34A-7A4E3FB14193}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04936445-E00D-43E5-A34A-7A4E3FB14193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04936445-E00D-43E5-A34A-7A4E3FB14193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04936445-E00D-43E5-A34A-7A4E3FB14193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04936445-E00D-43E5-A34A-7A4E3FB14193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B970357-F7DA-4F9C-BDC5-8273CB34D431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B970357-F7DA-4F9C-BDC5-8273CB34D431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B970357-F7DA-4F9C-BDC5-8273CB34D431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B970357-F7DA-4F9C-BDC5-8273CB34D431}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57570C15-36C3-4D3D-8D79-F2BFF882CD20}
+	EndGlobalSection
+EndGlobal
