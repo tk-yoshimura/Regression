@@ -4,15 +4,15 @@ using DoubleDouble;
 namespace Regression {
     public static class VectorExpand {
         public static Vector Square(this Vector v) {
-            return Vector.Func(v, ddouble.Square);
+            return (ddouble.Square, v);
         }
 
         public static Vector Cube(this Vector v) {
-            return Vector.Func(v, ddouble.Cube);
+            return (ddouble.Cube, v);
         }
 
         public static Vector Pow(this Vector v, int n) {
-            return Vector.Func(v, x => ddouble.Pow(x, n));
+            return (x => ddouble.Pow(x, n), v);
         }
     }
 }

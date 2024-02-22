@@ -17,10 +17,11 @@ static ddouble f(ddouble x, ddouble y) {
     return 0.5 + 0.25 * x + 0.125 * y + 0.0625 * x * y + 2 * x * x + 4 * y * y;
 }
 
-Vector x = new ddouble[] { 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4 };
-Vector y = new ddouble[] { 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4 };
+(Vector x, Vector y) = Vector.MeshGrid(new ddouble[] { 0, 1, 2, 3, 4 }, new ddouble[] { 1, 2, 3, 4 });
+Vector z = (f, (x, y));
 
-Vector z = Vector.Func(x, y, f);
+// outlier
+z[12] = 800;
 
 RobustRegressor fitter = new([x, y, x * y, x * x, y * y], z);
 
