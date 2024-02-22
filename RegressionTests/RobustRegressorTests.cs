@@ -15,7 +15,7 @@ namespace RegressionTests {
             (Vector x, Vector y) = Vector.MeshGrid(new ddouble[] { 0, 1, 2, 3, 4 }, new ddouble[] { 1, 2, 3, 4 });
             Vector z = (f, (x, y));
 
-            //z[12] = 800;
+            z[12] = 800;
 
             RobustRegressor fitter = new([x, y, x * y, x * x, y * y], z);
 
