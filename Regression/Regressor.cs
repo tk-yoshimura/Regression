@@ -41,7 +41,7 @@ namespace Regression {
             this.N = X.Rows;
             this.Features = X.Columns;
 
-            this.xt = X.Transpose;
+            this.xt = X.T;
         }
 
         public virtual Vector ExecuteFitting(Vector? weights = null) {
