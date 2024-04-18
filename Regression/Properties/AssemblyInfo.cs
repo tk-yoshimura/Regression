@@ -15,6 +15,6 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("CCD895F2-84F5-4027-8AC1-BFE2C77A609B")]
 
-[assembly: AssemblyVersion("1.1.0.*")]
+[assembly: AssemblyVersion("1.1.1.*")]
 
 [assembly: InternalsVisibleTo("RegressionTest")]
