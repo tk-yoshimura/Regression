@@ -20,7 +20,7 @@ namespace RegressionTests {
             Assert.AreEqual(20, fitter.N);
             Assert.AreEqual(6, fitter.Features);
 
-            Vector param = fitter.ExecuteFitting();
+            Vector param = fitter.Fit();
 
             Vector expected = new ddouble[] { 0.5, 0.25, 0.125, 0.0625, 2, 4 };
 
@@ -28,7 +28,7 @@ namespace RegressionTests {
 
             Assert.IsTrue(fitter.Error(param).Norm < 1e-25);
 
-            Assert.IsTrue((Regressor.FittingValue(fitter.X, param) - fitter.Y).Norm < 1e-25);
+            Assert.IsTrue((Regressor.Regress(fitter.X, param) - fitter.Y).Norm < 1e-25);
         }
 
         [TestMethod()]
@@ -45,7 +45,7 @@ namespace RegressionTests {
             Assert.AreEqual(20, fitter.N);
             Assert.AreEqual(5, fitter.Features);
 
-            Vector param = fitter.ExecuteFitting();
+            Vector param = fitter.Fit();
 
             Vector expected = new ddouble[] { 0.25, 0.125, 0.0625, 2, 4 };
 
@@ -53,7 +53,7 @@ namespace RegressionTests {
 
             Assert.IsTrue(fitter.Error(param).Norm < 1e-25);
 
-            Assert.IsTrue((Regressor.FittingValue(fitter.X, param) - fitter.Y).Norm < 1e-25);
+            Assert.IsTrue((Regressor.Regress(fitter.X, param) - fitter.Y).Norm < 1e-25);
         }
 
         [TestMethod()]
@@ -75,7 +75,7 @@ namespace RegressionTests {
             Assert.AreEqual(20, fitter.N);
             Assert.AreEqual(6, fitter.Features);
 
-            Vector param = fitter.ExecuteFitting(w);
+            Vector param = fitter.Fit(w);
 
             Vector expected = new ddouble[] { 0.5, 0.25, 0.125, 0.0625, 2, 4 };
 
@@ -101,7 +101,7 @@ namespace RegressionTests {
             Assert.AreEqual(20, fitter.N);
             Assert.AreEqual(5, fitter.Features);
 
-            Vector param = fitter.ExecuteFitting(w);
+            Vector param = fitter.Fit(w);
 
             Vector expected = new ddouble[] { 0.25, 0.125, 0.0625, 2, 4 };
 

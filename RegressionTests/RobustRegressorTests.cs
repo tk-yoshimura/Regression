@@ -25,7 +25,7 @@ namespace RegressionTests {
             Assert.IsTrue(fitter.W[11] == 1d);
             Assert.IsFalse(fitter.W[12] == 0d);
 
-            Vector param = fitter.ExecuteFitting();
+            Vector param = fitter.Fit();
 
             Vector expected = new ddouble[] { 0.5, 0.25, 0.125, 0.0625, 2, 4 };
 
@@ -54,7 +54,7 @@ namespace RegressionTests {
             Assert.IsTrue(fitter.W[11] == 1d);
             Assert.IsFalse(fitter.W[12] == 0d);
 
-            Vector param = fitter.ExecuteFitting();
+            Vector param = fitter.Fit();
 
             Vector expected = new ddouble[] { 0.25, 0.125, 0.0625, 2, 4 };
 

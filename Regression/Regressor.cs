@@ -44,7 +44,7 @@ namespace Regression {
             this.xt = X.T;
         }
 
-        public virtual Vector ExecuteFitting(Vector? weights = null) {
+        public virtual Vector Fit(Vector? weights = null) {
             if (weights is null) {
                 Vector parameters = Matrix.Solve(xt * X, xt * Y);
 
@@ -85,12 +85,12 @@ namespace Regression {
                 throw new ArgumentException("invalid size", nameof(parameters));
             }
 
-            Vector errors = FittingValue(X, parameters) - Y;
+            Vector errors = Regress(X, parameters) - Y;
 
             return errors;
         }
 
-        public static Vector FittingValue(Matrix xs, Vector parameters) {
+        public static Vector Regress(Matrix xs, Vector parameters) {
             return xs * parameters;
         }
 

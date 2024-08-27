@@ -16,11 +16,11 @@ namespace Regression {
             this.W = Vector.Fill(N, 1d);
         }
 
-        public sealed override Vector ExecuteFitting(Vector? weights = null) {
+        public sealed override Vector Fit(Vector? weights = null) {
             throw new InvalidOperationException();
         }
 
-        public Vector ExecuteFitting(int iter = 8, double eps = 1e-16) {
+        public Vector Fit(int iter = 8, double eps = 1e-16) {
             if (!(eps > 0)) {
                 throw new ArgumentOutOfRangeException(nameof(eps));
             }
@@ -28,7 +28,7 @@ namespace Regression {
             double err_threshold, inv_err;
             double[] weights = new double[N], errs = new double[N];
 
-            Vector param = base.ExecuteFitting();
+            Vector param = base.Fit();
 
             for (int i = 0; i < N; i++) {
                 weights[i] = 1;
@@ -57,7 +57,7 @@ namespace Regression {
                     weights[i] = r * r;
                 }
 
-                param = base.ExecuteFitting(new Vector(weights));
+                param = base.Fit(new Vector(weights));
 
                 iter--;
                 s = double.Max(s * 0.75, 1.25);

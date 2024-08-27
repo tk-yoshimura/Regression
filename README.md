@@ -25,7 +25,7 @@ z[12] = 800;
 
 RobustRegressor fitter = new([x, y, x * y, x * x, y * y], z);
 
-Vector param = fitter.ExecuteFitting();
+Vector param = fitter.Fit();
 ```
 
 ## Licence
