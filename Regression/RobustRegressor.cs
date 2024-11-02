@@ -1,16 +1,17 @@
 ﻿using Algebra;
+using DoubleDouble;
 
 namespace Regression {
     public class RobustRegressor : Regressor {
         public Vector W { get; private set; }
 
-        public RobustRegressor(Vector[] xs, Vector ys, bool intercept = true)
+        public RobustRegressor(Vector[] xs, Vector ys, ddouble? intercept = null)
             : base(xs, ys, intercept) {
 
             this.W = Vector.Fill(N, 1d);
         }
 
-        public RobustRegressor(Matrix xs, Vector ys, bool intercept = true)
+        public RobustRegressor(Matrix xs, Vector ys, ddouble? intercept = null)
             : base(xs, ys, intercept) {
 
             this.W = Vector.Fill(N, 1d);

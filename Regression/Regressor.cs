@@ -13,40 +13,37 @@ namespace Regression {
 
         public int Features { get; private set; }
 
-        private readonly Matrix xt;
+        private readonly Matrix x, xt;
+        private readonly Vector y;
+        private readonly ddouble? intercept;
 
-        public Regressor(Vector[] xs, Vector ys, bool intercept = true) :
-            this(intercept
-                ? Matrix.HConcat([Vector.Fill(xs.First().Dim, 1d), .. xs])
-                : Matrix.HConcat([.. xs]),
-                ys, intercept: false) { }
+        public Regressor(Vector[] xs, Vector ys, ddouble? intercept = null) :
+            this(Matrix.HConcat([.. xs]), ys, intercept) { }
 
-        public Regressor(Matrix xs, Vector ys, bool intercept = true) {
+        public Regressor(Matrix xs, Vector ys, ddouble? intercept = null) {
             if (xs.Rows != ys.Dim) {
                 throw new ArgumentException("mismatch size", $"{nameof(xs)}:(N, features),{nameof(ys)}:(N)");
             }
 
-            if (!intercept) {
-                this.X = xs.Copy();
-            }
-            else {
-                Matrix m = Matrix.Zero(xs.Rows, xs.Columns + 1);
-                m[.., 1..] = xs;
-                m[.., 0] = Vector.Fill(xs.Rows, 1d);
-                this.X = m;
-            }
-
+            this.X = xs.Copy();
             this.Y = ys.Copy();
 
             this.N = X.Rows;
-            this.Features = X.Columns;
+            this.Features = X.Columns + 1;
 
-            this.xt = X.T;
+            this.x = (intercept is null) ? Matrix.Concat(new Matrix[,] { { Matrix.Fill(N, 1, 1d), X } }) : X;
+            this.xt = x.T;
+            this.y = (intercept is null) ? ys.Copy() : ys - intercept.Value;
+            this.intercept = intercept;
         }
 
         public virtual Vector Fit(Vector? weights = null) {
             if (weights is null) {
-                Vector parameters = Matrix.Solve(xt * X, xt * Y);
+                Vector parameters = Matrix.Solve(xt * x, xt * y);
+
+                if (intercept is not null) {
+                    parameters = Vector.Concat(intercept.Value, parameters);
+                }
 
                 return parameters;
             }
@@ -57,13 +54,17 @@ namespace Regression {
 
                 Matrix wxt = xt.Copy();
 
-                for (int j = 0; j < Features; j++) {
+                for (int j = 0; j < wxt.Rows; j++) {
                     for (int i = 0; i < N; i++) {
                         wxt[j, i] *= weights[i];
                     }
                 }
 
-                Vector parameters = Matrix.Solve(wxt * X, wxt * Y);
+                Vector parameters = Matrix.Solve(wxt * x, wxt * y);
+
+                if (intercept is not null) {
+                    parameters = Vector.Concat(intercept.Value, parameters);
+                }
 
                 return parameters;
             }
@@ -91,7 +92,7 @@ namespace Regression {
         }
 
         public static Vector Regress(Matrix xs, Vector parameters) {
-            return xs * parameters;
+            return xs * parameters[1..] + parameters[0];
         }
 
         public override string ToString() {
