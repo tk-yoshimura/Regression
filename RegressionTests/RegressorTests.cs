@@ -51,6 +51,8 @@ namespace RegressionTests {
 
             Assert.IsTrue((param - expected).Norm < 1e-25);
 
+            Assert.AreEqual(0d, param[0]);
+
             Assert.IsTrue(fitter.Error(param).Norm < 1e-25);
 
             Assert.IsTrue((Regressor.Regress(fitter.X, param) - fitter.Y).Norm < 1e-25);
@@ -75,6 +77,8 @@ namespace RegressionTests {
             Vector expected = new ddouble[] { -2.5, 0.25, 0.125, 0.0625, 2, 4 };
 
             Assert.IsTrue((param - expected).Norm < 1e-25);
+
+            Assert.AreEqual(-2.5, param[0]);
 
             Assert.IsTrue(fitter.Error(param).Norm < 1e-25);
 
@@ -131,6 +135,8 @@ namespace RegressionTests {
             Vector expected = new ddouble[] { 0, 0.25, 0.125, 0.0625, 2, 4 };
 
             Assert.IsTrue((param - expected).Norm < 1e-25);
+
+            Assert.AreEqual(0d, param[0]);
         }
 
         [TestMethod()]
@@ -157,6 +163,8 @@ namespace RegressionTests {
             Vector expected = new ddouble[] { -2.5, 0.25, 0.125, 0.0625, 2, 4 };
 
             Assert.IsTrue((param - expected).Norm < 1e-25);
+
+            Assert.AreEqual(-2.5, param[0]);
         }
     }
 }

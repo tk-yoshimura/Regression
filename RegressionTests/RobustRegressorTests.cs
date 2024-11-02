@@ -62,6 +62,8 @@ namespace RegressionTests {
 
             Assert.IsTrue(fitter.W[11] > 0d);
             Assert.IsTrue(fitter.W[12] == 0d);
+
+            Assert.AreEqual(0d, param[0]);
         }
 
         [TestMethod()]
@@ -91,6 +93,8 @@ namespace RegressionTests {
 
             Assert.IsTrue(fitter.W[11] > 0d);
             Assert.IsTrue(fitter.W[12] == 0d);
+
+            Assert.AreEqual(-2.5d, param[0]);
         }
     }
 }
