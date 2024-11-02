@@ -39,7 +39,7 @@ namespace Regression {
 
         public virtual Vector Fit(Vector? weights = null) {
             if (weights is null) {
-                Vector parameters = Matrix.Solve(xt * x, xt * y);
+                Vector parameters = Matrix.SolvePositiveSymmetric(xt * x, xt * y, enable_check_symmetric: false);
 
                 if (intercept is not null) {
                     parameters = Vector.Concat(intercept.Value, parameters);
@@ -60,7 +60,7 @@ namespace Regression {
                     }
                 }
 
-                Vector parameters = Matrix.Solve(wxt * x, wxt * y);
+                Vector parameters = Matrix.SolvePositiveSymmetric(wxt * x, wxt * y, enable_check_symmetric: false);
 
                 if (intercept is not null) {
                     parameters = Vector.Concat(intercept.Value, parameters);
