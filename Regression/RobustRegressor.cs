@@ -39,7 +39,7 @@ namespace Regression {
             while (iter > 0) {
                 Vector err = Error(param);
                 for (int i = 0; i < N; i++) {
-                    errs[i] = Math.Abs((double)err[i]);
+                    errs[i] = double.Abs((double)err[i]);
                 }
 
                 double[] sort_err_list = (double[])errs.Clone();
