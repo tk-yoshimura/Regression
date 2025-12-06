@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Regression")]
-[assembly: AssemblyCopyright("Copyright © T.Yoshimura 2024")]
+[assembly: AssemblyCopyright("Copyright © T.Yoshimura 2024-2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -15,6 +15,6 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("CCD895F2-84F5-4027-8AC1-BFE2C77A609B")]
 
-[assembly: AssemblyVersion("1.2.0.*")]
+[assembly: AssemblyVersion("2.0.0.*")]
 
 [assembly: InternalsVisibleTo("RegressionTest")]
