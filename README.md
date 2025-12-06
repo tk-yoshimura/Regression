@@ -1,5 +1,5 @@
 # Regression
- Regression Analysis Utility 
+ Regression Analysis Utility
 
 ## Requirement
 .NET 10.0  
